@@ -1,0 +1,29 @@
+<center>
+  <h1>The Band Tracker :: Venue List</h1>
+<br>
+<% if @venues.any?() %>
+<h2> Here are all of the venues: </h2>
+<br>
+<br>
+<ul class="center" style="list-style-type:circle">
+  <% @venues.each() do |venue| %>
+  <li><%= venue.name() %></ol>
+  <% end %>
+</ul>
+
+<style type="text/css">
+ .center { text-align: center; list-style-position:inside;}
+</style>
+
+<% else %>
+<p>There are no venues in the system yet :: add one using the link below.</p>
+<% end %>
+</center>
+
+<hr>
+<center>
+  <div class="container">
+    <a href="/"><button class="btn-danger">Home</button></a>
+    <a href="/venue/new"><button class="btn-danger">Add New Venue</button></a>
+  </div>
+</center>

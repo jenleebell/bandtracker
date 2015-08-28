@@ -42,3 +42,8 @@ delete('/band/:id') do
   @band.delete
   redirect('/bands')
 end
+
+get('/venues') do
+  @venues = Venue.all()
+  erb(:venues)
+end
