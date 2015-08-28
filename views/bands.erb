@@ -7,11 +7,15 @@
 <br>
 <br>
 <% if @bands.any?() %>
-<ul>
+<ul class="center" style="list-style-type:circle">
   <% @bands.each() do |band| %>
-  <ol><a href="/bands/<%= band.id()%>"><%= band.name() %></a> </ol>
+  <li><a href="/bands/<%= band.id()%>"><%= band.name() %></a> </ol>
   <% end %>
 </ul>
+
+<style type="text/css">
+ .center { text-align: center; list-style-position:inside;}
+</style>
 
 <% else %>
 
