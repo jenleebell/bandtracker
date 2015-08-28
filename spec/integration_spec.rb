@@ -1,6 +1,6 @@
 require('spec_helper')
 
-describe("the venues path", {type: :feature}) do
+describe("the venue path", {type: :feature}) do
   it("adds a venue to the venue list") do
     visit("/venues")
     click_link("Add venue")
@@ -10,7 +10,7 @@ describe("the venues path", {type: :feature}) do
   end
 end
 
-describe("the bands path", {type: :feature}) do
+describe("the band path", {type: :feature}) do
   it('adds a band to the band list') do
     visit('/bands')
     click_link("Add band")

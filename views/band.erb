@@ -16,8 +16,6 @@
 <div class="container">
   <div class="jumbotron">
     <h1><%= @band.name() %></h1>
-
-
     <% if @band.venues().any?() %>
     <p>Has performed at these venues</p>
     <ul style="list-style-type:circle">
@@ -27,14 +25,10 @@
       <% end %>
       </h3>
     </ul>
-
     <br>
     <p>Want to update the name or add some more venues?</p>
     <a href="/band/<%= @band.id %>/edit"><button class="btn btn-warning">Update <%= @band.name() %></button></a>
-
-
     <% else %>
-
     <h2><p>Has <%= @band.name() %> played anywhere?</p>
     <p>Time to update those details</p></h2>
     <a href="/band/<%= @band.id %>/edit"><button class="btn btn-warning">Update <%= @band.name() %></button></a>
