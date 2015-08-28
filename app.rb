@@ -13,8 +13,7 @@ get('/bands') do
 end
 
 post('/bands') do
-  name = params.fetch('name')
-  band = Band.create({:name => name})
+  @band = Band.create({:name => params.fetch('name')})
   redirect('/bands')
 end
 
@@ -25,4 +24,21 @@ end
 get('/band/:id') do
   @band = Band.find(params.fetch("id").to_i())
   erb(:band)
+end
+
+get('/band/:id/edit') do
+  @band = Band.find(params.fetch("id").to_i())
+  erb(:band_edit)
+end
+
+# patch('band/:id') do
+#   @band = Band.find(params.fetch("id").to_i())
+#   @band.update({:name => params.fetch('name')})
+#   redirect('/band/#{@band.id()}')
+# end
+
+delete('/band/:id') do
+  @band = Band.find(params.fetch("id").to_i())
+  @band.delete
+  redirect('/bands')
 end

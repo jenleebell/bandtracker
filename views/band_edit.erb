@@ -1,11 +1,41 @@
+<h1><%= @band.name() %> :: Update Info</h1>
+<br>
+<h3>Here you can update the name or add a venue for this band.
+<br>
+<br>
 
-<!-- <h3>Enter in their name and number below:<br>
+<form action="/band/<%= @band.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input id="name" name="name" type="text" placeholder="i.e. Pearl Jammin">
+  <button type="submit" class="btn-warning">Update Name</button>
+</form>
 
-<form action="/clients" method="post">
-  <input id="client_id" name="client_id" type="hidden" value="<%= @stylist.id() %>">
+<br>
+<br>
 
-  <input id="name" name="name" type="text" placeholder="i.e. Maximillian Victorius III">
-  <input id="phone" name="phone" type="text" placeholder="i.e. 8082225555">
+<form action="/venues" method="post">
+  <input id="band_id" name="band_id" type="hidden" value="<%= @band.id() %>">
 
-  <button type="submit">Add venue</button>
-</form> -->
+  <input id="venue_name" name="venue_name" type="text" placeholder="i.e. Moda Center">
+
+  <button type="submit" class="btn-warning">Add New Venue</button>
+</form>
+
+
+<br>
+<br>
+<br>
+
+<center>
+<form action="/band/<%= @band.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn-danger">Delete Band</button>
+</form>
+</h3>
+</center>
+<center>
+<hr>
+  <a href="/"><button class="btn-danger">Home</button></a>
+  <a href="/bands"><button class="btn-danger">View All Bands</button></a>
+  </div>
+</center>
