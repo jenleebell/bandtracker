@@ -1,0 +1,30 @@
+<center><h1>Band Info :: <%= @band.name() %></h1>
+<div class="container">
+<hr>
+
+<% if @band.venues().any?() %>
+<h3>The band has performed at these venues:
+<br>
+
+<ul>
+  <% @band.venues().each() do |venue| %>
+  <li><%= venue.name() %></li>
+  <% end %>
+</ul>
+</h3>
+
+<% else %>
+<h2><p>This band has no venues associated with it. Add one using the button below:</p></h2>
+<% end %>
+
+<center>
+  <a href="/band/edit"><button class="btn-danger">Edit Band</button></a>
+</h3>
+<br>
+
+<hr>
+<center>
+  <a href="/"><button class="btn-danger">Home</button></a>
+    <a href="/bands"><button class="btn-danger">View All Bands</button></a>
+  </div>
+</center>

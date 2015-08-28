@@ -12,12 +12,17 @@ get('/bands') do
   erb(:bands)
 end
 
-get('/band/new') do
-  erb(:band_form)
-end
-
 post('/bands') do
   name = params.fetch('name')
   band = Band.create({:name => name})
   redirect('/bands')
+end
+
+get('/band/new') do
+  erb(:band_form)
+end
+
+get('/band/:id') do
+  @band = Band.find(params.fetch("id").to_i())
+  erb(:band)
 end

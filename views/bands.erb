@@ -9,7 +9,7 @@
 <% if @bands.any?() %>
 <ul class="center" style="list-style-type:circle">
   <% @bands.each() do |band| %>
-  <li><a href="/bands/<%= band.id()%>"><%= band.name() %></a> </ol>
+  <li><a href="/band/<%= band.id()%>"><%= band.name() %></a> </ol>
   <% end %>
 </ul>
 
