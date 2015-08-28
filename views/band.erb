@@ -1,36 +1,44 @@
-<center><h1>Band Info :: <%= @band.name() %></h1>
-<div class="container">
-<hr>
-
-<% if @band.venues().any?() %>
-<h3>The band has performed at these venues:
-<br>
-<br>
-
-<ul class="center" style="list-style-type:circle">
-  <% @band.venues().each() do |venue| %>
-  <li><%= venue.name() %></li>
-  <% end %>
-</ul>
-
-<style type="text/css">
- .center { text-align: center; list-style-position:inside;}
-</style>
-
-</h3>
-
-<% else %>
-<h2><p>This band has no venues associated with it. Add one using the button below:</p></h2>
-<% end %>
-
-<center>
-  <a href="/band/<%= @band.id %>/edit"><button class="btn-danger">Update Band</button></a>
-</h3>
-<br>
-
-<hr>
-<center>
-  <a href="/"><button class="btn-danger">Home</button></a>
-    <a href="/bands"><button class="btn-danger">View All Bands</button></a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BandTracker</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/bands">Bands</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
   </div>
-</center>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1><%= @band.name() %></h1>
+
+
+    <% if @band.venues().any?() %>
+    <p>Has performed at these venues</p>
+    <ul style="list-style-type:circle">
+      <h3>
+      <% @band.venues().each() do |venue| %>
+      <li><%= venue.name() %></li>
+      <% end %>
+      </h3>
+    </ul>
+
+    <br>
+    <p>Want to update the name or add some more venues?</p>
+    <a href="/band/<%= @band.id %>/edit"><button class="btn btn-warning">Update <%= @band.name() %></button></a>
+
+
+    <% else %>
+
+    <h2><p>Has <%= @band.name() %> played anywhere?</p>
+    <p>Time to update those details</p></h2>
+    <a href="/band/<%= @band.id %>/edit"><button class="btn btn-warning">Update <%= @band.name() %></button></a>
+    </h2>
+    <% end %>
+  </div>
+</div>

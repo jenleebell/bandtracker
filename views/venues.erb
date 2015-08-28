@@ -1,29 +1,42 @@
-<center>
-  <h1>The Band Tracker :: Venue List</h1>
-<br>
-<% if @venues.any?() %>
-<h2> Here are all of the venues: </h2>
-<br>
-<br>
-<ul class="center" style="list-style-type:circle">
-  <% @venues.each() do |venue| %>
-  <li><%= venue.name() %></ol>
-  <% end %>
-</ul>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BandTracker</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/bands">Bands</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<style type="text/css">
- .center { text-align: center; list-style-position:inside;}
-</style>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Venue list</h1>
+    <% if @venues.any?() %>
+    <p>These are all of the venues in the system
+    <br>
+    <ul style="list-style-type:circle">
+      <h3>
+      <% @venues.each() do |venue| %>
+      <li><%= venue.name() %></ol>
+      <% end %>
+      </h3>
+    </ul>
 
 <% else %>
-<p>There are no venues in the system yet :: add one using the link below.</p>
+<p>There are no venues in the system yet :: add one</p>
 <% end %>
-</center>
-
-<hr>
-<center>
-  <div class="container">
-    <a href="/"><button class="btn-danger">Home</button></a>
-    <a href="/venue/new"><button class="btn-danger">Add New Venue</button></a>
-  </div>
-</center>
+<br>
+  <p>Want to see more venues? Go ahead, add one.
+    <br>
+    <a href="/venue/new" class="btn btn-warning btn-default"><span class="glyphicon glyphicon-plus"></span> Add venue</a>
+    <br>
+    <p>Tired of seeing venues? Time to start adding bands. Go for it.
+    <br>
+    <a href="/bands" class="btn btn-warning btn-default"><span class="glyphicon glyphicon-plus"></span> See bands</a>
+</div>
+</div>

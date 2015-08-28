@@ -1,48 +1,59 @@
-<h1><%= @band.name() %> :: Update Info</h1>
-<br>
-<h3>Here you can update the name or add a venue for this band.
-<br>
-<br>
-
-<form action="/band/<%= @band.id() %>" method="post">
-  <input type="hidden" name="_method" value="patch">
-  <input id="name" name="name" type="text" placeholder="i.e. Pearl Jammin">
-  <button type="submit" class="btn btn-warning">Update Name</button>
-</form>
-
-<br>
-<br>
-
-<h4>Choose all of the venues below where <%= @band.name %> has played:</h4>
-<% if @venues.any?() %>
-  <form action="/band/<%= @band.id %>/venues" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <% @venues.each() do |venue| %>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.name() %>
-        </label>
-      </div>
-    <% end %>
-    <button type="submit" class="btn btn-warning">Add Venues</button>
-  </form>
-<% else %>
-  There are no venues listed. <a href="/venue/new">Add one here.</a>
-<% end %>
-<br>
-<br>
-<br>
-
-<center>
-<form action="/band/<%= @band.id() %>" method="post">
-  <input name="_method" type="hidden" value="delete">
-  <button type="submit" class="btn btn-danger">Delete Band</button>
-</form>
-</h3>
-</center>
-<center>
-<hr>
-  <a href="/"><button class="btn btn-danger">Home</button></a>
-  <a href="/bands"><button class="btn btn-danger">View All Bands</button></a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BandTracker</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/bands">Bands</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
   </div>
-</center>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1><%= @band.name() %></h1>
+    <form action="/band/<%= @band.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <h3>
+      <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="i.e. Pearl Jammin">
+      <br>
+      <br>
+      <button type="submit" class="btn btn-warning">Update Name</button>
+    </h3>
+    </form>
+    <br>
+    <br>
+    <p>Choose all of the venues where <%= @band.name %> has played</p>
+    <% if @venues.any?() %>
+      <form action="/band/<%= @band.id %>/venues" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <h3>
+        <% @venues.each() do |venue| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.name() %>
+            </label>
+          </div>
+        <% end %>
+        <br>
+        <button type="submit" class="btn btn-warning">Add Venues</button>
+        </h3>
+      </form>
+    <% else %>
+      There are no venues listed. <a href="/venue/new">Add one here.</a>
+    <% end %>
+    <br>
+    <br>
+    <p>Don't want to see this band anymore? No problem.
+    <form action="/band/<%= @band.id() %>" method="post">
+      <input name="_method" type="hidden" value="delete">
+      <button type="submit" class="btn btn-danger">Delete Band</button>
+    </form>
+    </h3>
+  </div>
+</div>

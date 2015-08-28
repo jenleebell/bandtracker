@@ -1,13 +1,30 @@
-<center>
-<h1>The Band Tracker :: Track your Bands</h1>
-<br>
-<h3>Welcome to the main portal. Here you can add, edit, update and delete bands and venues to help keep track of the bands you enjoy.</h2>
-<br>
-<hr>
-<center>
-  <div class="container">
-    <a href="/bands"><button class="btn-danger">View All Bands</button></a>
-        <a href="/venues"><button class="btn-danger">View All Venues</button></a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BandTracker</a>
     </div>
-  </center>
-</center>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/bands">Bands</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>BandTracker</h1>
+    <p>Keep track of where bands perform
+      <br>
+      <br>
+      Step 1 :: Add a venue
+      <br>
+      Step 2 :: Add a band
+      <br>
+      Step 3 :: Start tracking!</p>
+      <br>
+    <a href="/venues" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-music"></span> Get Started</a>
+  </div>
+</div>

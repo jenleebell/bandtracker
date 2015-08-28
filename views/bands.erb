@@ -1,34 +1,37 @@
-<center>
-  <h1>The Band Tracker :: Band List</h1>
-
-<br>
-<h2>
-  Click on band name below to view the venues they have performed at.
-<br>
-<br>
-<% if @bands.any?() %>
-<ul class="center" style="list-style-type:circle">
-  <% @bands.each() do |band| %>
-  <li><a href="/band/<%= band.id()%>"><%= band.name() %></a> </ol>
-  <% end %>
-</ul>
-
-<style type="text/css">
- .center { text-align: center; list-style-position:inside;}
-</style>
-
-<% else %>
-
-<p>There are no bands in the system yet :: add one using the link below.</p>
-
-<% end %>
-</h2>
-</center>
-
-<hr>
-<center>
-  <div class="container">
-    <a href="/"><button class="btn-danger">Home</button></a>
-    <a href="/band/new"><button class="btn-danger">Add New Band</button></a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BandTracker</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/bands">Bands</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
   </div>
-</center>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Band list</h1>
+    <p>Click on a band, see where they have performed
+    <br>
+    <% if @bands.any?() %>
+      <ul style="list-style-type:circle">
+        <h3>
+        <% @bands.each() do |band| %>
+        <li><a href="/band/<%= band.id()%>" style="color:orange"><%= band.name() %></a> </ol>
+        <% end %>
+        </h3>
+      </ul>
+      <% else %>
+      <p>There are no bands in the system yet :: add one
+    <% end %>
+    <br>
+    <p>Want to see more bands? Go ahead, add one.
+    <br>
+    <a href="/band/new" class="btn btn-warning btn-default"><span class="glyphicon glyphicon-plus"></span> Add band</a>
+  </div>
+</div>

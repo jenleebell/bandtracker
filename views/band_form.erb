@@ -1,18 +1,34 @@
-<center><h1>The Band Tracker :: Add a Band</h1>
-<br>
-
-<h4>
-<form action = "/bands" method = "post">
-
-<label for="band">Add a band</label>
-<input id="name" name="name" type="text" placeholder="i.e. Pearl Jam">
-
-<button name="button" class="btn-success">Go</button>
-</form>
-</h4>
-<hr>
-
-  <div class="container">
-    <a href="/"><button class="btn-danger">Home</button></a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">BandTracker</a>
     </div>
-  </center>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/bands">Bands</a></li>
+        <li><a href="/venues">Venues</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Add a band</h1>
+    <p>Step 1 :: Enter in a name</p>
+    <br>
+    <p>Step 2 :: Hit go</p>
+    <br>
+    <p>Voila! A band was born</p>
+    <br>
+    <br>
+    <form action = "/bands" method = "post">
+      <div class="form-group">
+        <label for="band">Add a band</label>
+        <input id="name" name="name" type="text" placeholder="i.e. Pearl Jam">
+        <button name="button" class="btn btn-warning">Go</button>
+      </div>
+    </form>
+  </div>
+</div>
