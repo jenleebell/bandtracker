@@ -47,3 +47,12 @@ get('/venues') do
   @venues = Venue.all()
   erb(:venues)
 end
+
+get('/venue/new') do
+  erb(:venue_form)
+end
+
+post('/venues') do
+  @venue = Venue.create({:name => params.fetch('name')})
+  redirect('/venues')
+end
