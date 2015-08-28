@@ -10,17 +10,24 @@ This app will allow you to add venues, add bands, and add bands to venues. It's 
 
 ## Setup
 
-* Clone from Github (https://github.com/jenleebell/bandtracker.git)
-* In terminal, run "bundle install"
-* In terminal, run "ruby app.rb" in the root folder
-* In terminal, run "$rake db:create", "$rake db:migrate", "rake db:test:prepare"
-* Last step in terminal, run "ruby app.rb"
-* Use your favorite browser and head over to localhost:4567
-* Enjoy BandTracker!
+* Open terminal
+* _`$ git clone https://github.com/kylemellander/center_stage.git` https://github.com/jenleebell/bandtracker.git_
+* _'$ cd band_tracker' to enter directory_
+* _'$ bundle' to install gems_
+* _`$ postgres` to start a postgres server_
+* _`$ db:create` to create the database_
+* _`$ db:migrate` to add table information_
+* _open new tab in terminal and run `$ ruby app.rb` in the project directory to run sinatra app_
+* _go to `localhost:4567` in your favorite browser to open bandtracker_
+
 
 ## Technologies Used
 
-Ruby, Activerecord, Sinatra, SQL
+Written in Ruby
+Runs on Sinatra
+Error checking with RSpec and Capybara
+Database management with postgresql
+Object Modeling with ActiveRecord
 
 ### Legal
 
