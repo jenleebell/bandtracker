@@ -5,12 +5,18 @@
 <% if @band.venues().any?() %>
 <h3>The band has performed at these venues:
 <br>
+<br>
 
-<ul>
+<ul class="center" style="list-style-type:circle">
   <% @band.venues().each() do |venue| %>
   <li><%= venue.name() %></li>
   <% end %>
 </ul>
+
+<style type="text/css">
+ .center { text-align: center; list-style-position:inside;}
+</style>
+
 </h3>
 
 <% else %>

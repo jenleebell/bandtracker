@@ -28,14 +28,24 @@ end
 
 get('/band/:id/edit') do
   @band = Band.find(params.fetch("id").to_i())
+  @venues = Venue.all()
   erb(:band_edit)
 end
 
-# patch('band/:id') do
-#   @band = Band.find(params.fetch("id").to_i())
-#   @band.update({:name => params.fetch('name')})
-#   redirect('/band/#{@band.id()}')
-# end
+patch('/band/:id') do
+  @band = Band.find(params.fetch("id").to_i())
+  @band.update({:name => params.fetch("name")})
+  redirect("/band/#{@band.id()}")
+end
+
+patch('/band/:id/venues') do
+  band_id = params.fetch("id").to_i()
+  @band = Band.find(band_id)
+  venue_ids = params.fetch("venue_ids")
+  @band.update({:venue_ids => venue_ids})
+  @venues = Venue.all()
+  redirect("/band/#{@band.id()}")
+end
 
 delete('/band/:id') do
   @band = Band.find(params.fetch("id").to_i())
