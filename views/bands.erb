@@ -1,0 +1,30 @@
+<center>
+  <h1>The Band Tracker :: Band List</h1>
+
+<br>
+<h2>
+  Click on band name below to view the venues they have performed at.
+<br>
+<br>
+<% if @bands.any?() %>
+<ul>
+  <% @bands.each() do |band| %>
+  <ol><a href="/bands/<%= band.id()%>"><%= band.name() %></a> </ol>
+  <% end %>
+</ul>
+
+<% else %>
+
+<p>There are no bands in the system yet :: add one using the link below.</p>
+
+<% end %>
+</h2>
+</center>
+
+<hr>
+<center>
+  <div class="container">
+    <a href="/"><button class="btn-danger">Home</button></a>
+    <a href="/band/new"><button class="btn-danger">Add New Band</button></a>
+  </div>
+</center>
