@@ -11,9 +11,9 @@ This app will allow you to add venues, add bands, and add bands to venues. It's 
 ## Setup
 
 * Open terminal
-* _`$ git clone https://github.com/kylemellander/center_stage.git` https://github.com/jenleebell/bandtracker.git_
-* _'$ cd band_tracker' to enter directory_
-* _'$ bundle' to install gems_
+* _`$ git clone https://github.com/jenleebell/bandtracker.git`_
+* _`$ cd band_tracker` to enter directory_
+* _`$ bundle` to install gems_
 * _`$ postgres` to start a postgres server_
 * _`$ db:create` to create the database_
 * _`$ db:migrate` to add table information_
